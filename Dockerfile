@@ -24,3 +24,6 @@ COPY --from=builder /trojan-go/example/server.json /etc/trojan-go/config.json
 
 ENTRYPOINT ["/usr/local/bin/trojan-go", "-config"]
 CMD ["/etc/trojan-go/config.json"]
+
+
+#docker run --name trojan --restart unless-stopped --network=host -v /root/trojan-go/config.json:/etc/trojan-go/config.json -v /etc/letsencrypt:/etc/letsencrypt -v /usr/share/zoneinfo/Asia/Shanghai:/etc/localtime -d trojan
